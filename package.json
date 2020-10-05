@@ -1,0 +1,14 @@
+{
+  "name": "poll-reports",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "@cubejs-backend/server": "^0.20.12",
+    "@cubejs-backend/sqlite-driver": "^0.20.9",
+    "@prisma/cli": "^2.8.0",
+    "@prisma/client": "^2.8.0"
+  }
+}
