@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "node index.js"
+    "dev": "node index.js",
+    "seed": "node seed.js"
   },
   "dependencies": {
     "@cubejs-backend/server": "^0.20.12",

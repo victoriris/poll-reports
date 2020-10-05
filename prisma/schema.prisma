@@ -12,7 +12,7 @@ generator client {
 
 model Candidate {
   id        String   @id @default(uuid())
-  name      String
+  name      String   @unique
   votes     Vote[]
   updatedAt DateTime @updatedAt
   createdAt DateTime @default(now())
