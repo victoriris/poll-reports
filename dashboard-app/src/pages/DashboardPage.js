@@ -3,6 +3,7 @@ import { Col } from 'antd';
 import ChartRenderer from '../components/ChartRenderer';
 import Dashboard from '../components/Dashboard';
 import DashboardItem from '../components/DashboardItem';
+import VoteForm from '../components/VoteForm';
 const DashboardItems = [
   {
     id: 0,
@@ -72,9 +73,12 @@ const DashboardPage = () => {
   );
 
   return DashboardItems.length ? (
-    <Dashboard dashboardItems={DashboardItems}>
-      {DashboardItems.map(dashboardItem)}
-    </Dashboard>
+    <>
+      <VoteForm />
+      <Dashboard dashboardItems={DashboardItems}>
+        {DashboardItems.map(dashboardItem)}
+      </Dashboard>
+    </>
   ) : (
     <Empty />
   );

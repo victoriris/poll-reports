@@ -4,10 +4,37 @@ const bodyParser = require("body-parser");
 const CubejsServerCore = require("@cubejs-backend/server-core");
 const WebSocketServer = require("@cubejs-backend/server/WebSocketServer");
 const express = require("express");
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient();
 
 const app = express();
 app.use(require("cors")());
 app.use(bodyParser.json({ limit: "50mb" }));
+app.get('/vote', async (req, res) => {
+	const { name } = req.query;
+	const candidate = await prisma.candidate.findFirst({
+		where: {
+			name
+		}
+	})
+
+	if (!candidate) {
+		res.statusCode = 400;
+		return res.send("Name not found");
+	}
+
+	await prisma.vote.create({
+		data: {
+			candidate: {
+				connect: {
+					id: candidate.id
+				}
+			}
+		}
+	})
+
+	res.send(`Vote added for ${name}!`)
+})
 
 const serverCore = CubejsServerCore.create({
 	logger: (msg, params) => {
