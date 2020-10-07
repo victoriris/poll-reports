@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  poll-reports-api:
+    image: poll-reports-api
+    build: .
+    env_file: .env
+    environment: 
+      - NODE_ENV=production
+    ports:
+      - 4000:4000
+    networks:
+      - reporting-network
+
+  poll-reports:
+    image: poll-reports
+    build: ./dashboard-app
+    # env_file: ./dashboard-app/.env
+    environment: 
+      - CUBEJS_API_URL=host.docker.internal:4000
+    ports:
+      - 3000:80
+    networks:
+      - reporting-network
+
+networks: 
+  reporting-network: 
+    driver: bridge
+  

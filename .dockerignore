@@ -1,0 +1,9 @@
+# dashboard-app
+node_modules
+npm-debug.log
+.env
+
+**/*.git
+**/*.idea
+**/*node_modules
+**/*build
