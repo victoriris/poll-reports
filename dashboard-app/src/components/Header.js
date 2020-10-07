@@ -24,7 +24,7 @@ const Header = ({ location }) => (
           lineHeight: '54px',
         }}
       >
-        My Dashboard
+        Poll Reports
       </h2>
     </div>
     <Menu

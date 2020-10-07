@@ -6,7 +6,7 @@ import DashboardItem from '../components/DashboardItem';
 const DashboardItems = [
   {
     id: 0,
-    name: 'New Chart',
+    name: 'Poll Overview',
     vizState: {
       query: {
         measures: ['Vote.count'],
@@ -24,7 +24,7 @@ const DashboardItems = [
   },
   {
     id: 1,
-    name: 'New Chart',
+    name: 'Vote segments',
     vizState: {
       query: {
         measures: ['Vote.count'],
